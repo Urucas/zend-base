@@ -1,0 +1,28 @@
+<?php include('modulos/cabecera.phtml') ?>
+
+<?php include('modulos/menu.phtml') ?>
+	<div id="marginador_centro">
+  <div id="titulo_categoria">
+    <div id="titulo_seccion"><h1><?php echo $this->title ?></h1></div>
+    </div>
+         
+
+			<div class="form_new">
+            
+            <div id='preview'></div>
+			
+            </div>
+
+			<?php if ($this->modified == 1){ ?>	<h2>Los datos han sido guardados con exito</h2>	<?php } ?>
+			<div id="form" style="text-align:center;">
+            <?php echo $this->form ?>
+
+            </div>
+             </div>
+                        
+				<a href="/backend/listar?table=<?php echo $this->module ?>" class="button volver-forms"> Volver</a>
+
+		 </div>
+
+
+<?php include "modulos/footer.phtml" ?>

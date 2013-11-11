@@ -1,0 +1,33 @@
+﻿<div class="block-large" id="comunidad-container" style="width:650px;">
+	<div id="comunidadSelect">
+		<select id="filter" name="cat" onchange="window.localStorage.setItem('paginacomunidad','1');kuesty.filterComunidad(this);">
+			<option value="all">Todo</option>
+			<!--option value="colectividades">Feria de las colectividades</option-->
+			<!-- option value="nearby">Cerca mio</option-->
+			<option value="promos">Locales con promociones</option>
+			<option value="hoy">Que dicen los locales hoy ?</option>
+			<option value="people">La opinion de la gente</option>
+			<option value="friends">Mis Amigos</option>
+			<option value="imfan">Soy Fan</option>
+			<option value="local">Solo locales</option>
+			<option value="me">Mi actividad</option>
+        </select>
+	</div>
+	<script type="text/javascript">window.localStorage.setItem("paginacomunidad","1"); $("#comunidadSelect option[value=<?php echo $this->filter; ?>]").attr("selected","selected") ;</script>
+	<h2>Comunidad<span></span></h2>
+	<?php if(!$this->comunidad) { ?>
+	<div class="comunidad_event">
+		<p><?php echo $this->error; ?></p>
+	</div>
+	<?php  } else { echo $this->render("/comunidad/evento.phtml"); ?>
+	<button class="view-more" onclick="kuesty.loadMoreComunidad('<?php echo $this->filter; ?>')">ver más</button>
+	<?php } ?>
+</div>
+
+<div style="margin-bottom:4px;">
+<iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fkuestyapp&amp;width=300&amp;height=258&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;border_color=%23000&amp;header=false&amp;appId=305046129613505" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:300px; height:258px;" allowTransparency="false"></iframe>
+</div>
+
+<a class="twitter-timeline" width="300" height="500" data-theme="dark" data-dnt=true href="https://twitter.com/kuestyapp" data-widget-id="266535206629031936">Tweets por @kuestyapp</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+

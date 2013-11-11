@@ -1,0 +1,71 @@
+﻿
+<div class="block-large">
+	<h2>Mensajes de <?php echo $this->usuario["user"];?> <span>  </span></h2>
+	<div class="user-info">
+		<!-- img class='avatar' src='<?php echo $this->usuario["avatar"]?>' alt="kuesty" /-->
+		<div id="contenedor_avatar" style="width:100px;">
+			<div id="preview-img">
+				<img class='avatar' src='/user/avatar/id/<?php echo $this->usuario["id"]?>' alt="kuesty" />
+			</div>
+		</div>
+		<div style="display:none;" id="id_user"><?php echo $this->usuario["id"] ?></div> 
+		<div class="info-user">
+ 			<?php echo $this->usuario["nombre"]." ".substr($this->usuario["apellido"],0,1);?>. 
+			<span><?php echo $this->usuario["puntos"]?> puntos</span>
+			<span><?php echo $this->usuario["nombre_localidad"]?>, Argentina</span>
+		</div>
+		<div class="links-user">
+			<a class='friends'><span></span><?php echo $this->usuario["cantidad_amigos"]?> amigos</a>
+			<a class='tips'><span> </span><?php echo $this->usuario["cantidad_tips"]?> tips</a>
+			<a class='checkin'><span> </span><?php echo $this->usuario["cantidad_checkins"]?> checkins</a>
+			<a class='review2'><span> </span><?php echo $this->usuario["cantidad_reviews"]?> rese&ntilde;as</a>
+		</div>
+       	<p><?php echo $this->usuario["descripcion"]?></p>    
+    	<div class='clearer'></div>
+	</div>
+
+		<a href="/messages/nuevo" class="boton-negro" style="align:right;">Nuevo mensaje</a> 
+		<div style="clear:both;padding-top:10px;"></div>
+    <div class='modal notificaciones'>
+    	<h3>Listado de Mensajes<span></span></h3>
+		<div>
+		<br />
+			<?php foreach($this->conversaciones as $k=>$cnv){ ?>
+
+			
+			<?php if($cnv["id_emisor"]==$this->usuario["id"]) {
+				$cnv_user = array(
+					"id" 	   => $cnv["id_receptor"],
+					"user" 	   => $cnv["user_receptor"],
+					"nombre"   => $cnv["nombre_receptor"],
+					"apellido" => $cnv["apellido_receptor"],
+				);
+			} else {	
+				$cnv_user = array(
+					"id" 	   => $cnv["id_emisor"],
+					"user" 	   => $cnv["user_emisor"],
+					"nombre"   => $cnv["nombre_emisor"],
+					"apellido" => $cnv["apellido_emisor"],
+				);		
+			}
+			?>	
+			<div class="conversacion">
+				<a class="cnv_date"> <script>document.write(jQuery.timeago("<?php echo $cnv['fecha_hora']; ?>"));</script> </a>
+				<a href="/user/?id=<?php echo $cnv_user["id"];?>" style="float:left;padding-left:0px; height:80px; overflow:hidden;">
+					<img src="http://kuesty.com/user/avatar/?id=<?php echo $cnv_user["id"];?>" width="80px" />
+				</a>
+				<a class="cnv_username" href="/user/?id=<?php echo $cnv_user["id"];?>"><?php echo $cnv_user["user"];?></a>
+				<a>
+					<?php echo $cnv_user["user"] != $this->usuario["id"] ? "".$cnv["mensaje"] : "".$cnv["mensaje"]; ?>
+				</a>
+				<a class="cnv_cidlink" href="/messages/conversation/?cid=<?php echo $cnv["conversation_id"];?>">Ver conversaci&oacute;n</a>
+			</div>	
+      		<div clear="both"></div> 
+			<?php } ?>
+        </div>
+        
+    </div>
+    
+      
+    </div>
+

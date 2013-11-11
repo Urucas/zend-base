@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="description" content="Guia movil de bares y restos de Rosario. Encontrá el restaurant o bar que estabas buscando. Pubs y Restaurantes de Rosario.">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<?php echo $this->facebookMeta;?>
+<link rel="icon" href="/resources/favicon.ico">
+<?php echo $this->headTitle(); ?>
+<link href="/resources/css/style.css" rel="stylesheet" type="text/css" />
+<link href="/resources/css/ui-lightness/jquery-ui-1.8.18.custom.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="/resources/css/jquery.tagsinput.css" />
+<script type="text/javascript" src="/resources/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="/resources/js/jquery.scrollTo.js"></script>
+<script type="text/javascript" src="/resources/js/jquery-ui-1.8.18.custom.min.js"></script>
+<script type="text/javascript" src="/resources/js/ui.selectmenu.js"></script>
+<script type="text/javascript" src="/resources/js/scripts.js"></script>
+<script type="text/javascript" src="/resources/js/jcarousellite_1.0.1.min.js"></script> 
+<script type="text/javascript" src="/resources/js/jquery.floatingFixed.js"></script> 
+<script type="text/javascript" src="/resources/js/jquery.timeago.js"></script> 
+<script type="text/javascript" src="/resources/js/kuestyFront.js?r=<?php echo mt_rand();?>"></script> 
+<script type="text/javascript" src="/resources/js/jquery.tagsinput.js"></script>
+<!-- Add fancyBox main JS and CSS files -->
+	<script type="text/javascript" src="/resources/js/fancybox/jquery.fancybox.js?v=2.1.0"></script>
+	<link rel="stylesheet" type="text/css" href="/resources/js/fancybox/jquery.fancybox.css?v=2.1.0" media="screen" />
+
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?libraries=geometry&sensor=false"></script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32842001-1']);
+  _gaq.push(['_trackPageview']);
+
+   (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+   })();
+
+</script>
+
+<?php echo $this->headScript(); ?>
+<!--[if lt IE 9]>
+    <style>
+        body {
+            background-image: url(../img/bg-standard3.png) !important;
+            background-repeat: repeat-x !important;
+            background-position: center top !important;
+        }
+    </style>
+<![endif]-->
+
+</head>
+
+<body style="background:none; text-align:left;">
+
+<div class="loading_modal">pensando...</div>
+
+<div id="dialog-message" style="display:none;text-align:left;" title="Kuesty dice:">
+  		<p></p>
+	</div>
+
+
+<div class="block-large" style="background-color: #E3E3E3;">
+<h2>Activacion de Propietario del local <?php echo $this->local["nombre"]; ?></h2>
+
+<?php if($this->changed) { ?>
+
+<h1>Ya eres propietario del local</h1>
+
+<?php }else{ ?>
+	
+	<p>Hola <span><?php echo $this->usuario["user"]; ?></span> intentas reclamar el local <span><?php echo $this->local["nombre"];?></span><br />
+	Si ya has recibido nuestra tarjeta de activacion por favor ingresa el codigo de validacion para poder comprobar que realmente el responsable<span><?php echo $this->local["nombre"];?></span>.</p>
+
+   <div class="contact-form">
+
+			<form method="POST">
+
+				<label>Codigo de activaci&oacute;n</label>
+				<input type="text" name="activation_key" /><br />
+
+				<div style="margin-left:150px;">
+				<?php echo $this->recaptcha; ?>	
+				</div>
+				<?php if($this->error) { ?>
+					<p class="error" style="color:redcolor:red;"><?php echo $this->error; ?></p>
+				<?php } ?>
+				<input type="submit" value="Enviar" />
+			
+			</form>
+
+		</div>
+
+
+	<p>Si no has recibido en el local la tarjeta puedes solicitarla aqui.</p> 
+	<div style="clear:both"></div>
+	<input type="button" id="claimTarjeta" value="Pedir codigo de activaci&oacute;n" class="lindo-boton" onclick="kuesty.claimTarjeta(<?php echo $this->local["id"]; ?>)"/>
+	<div style="clear:both"></div>
+	
+	<br />
+
+<?php } ?>
+
+
+</div>
+
+	<script>
+		$("body").on({
+    		// When ajaxStart is fired, add 'loading' to body class
+			ajaxStart: function() {
+			   	$(this).addClass("loading"); 
+    		},
+    		// When ajaxStop is fired, rmeove 'loading' from body class
+    		ajaxStop: function() { 
+        		$(this).removeClass("loading"); 
+    		}    
+		});
+		
+	</script>
+
+
+
+</body>
+</html>

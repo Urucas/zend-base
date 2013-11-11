@@ -1,0 +1,17 @@
+	<div class="block-large" style="background-color:#E3E3E3;">
+			<?php if($this->step != 2) { ?>
+			<h2>Para poder recuperar tu password, necesitamos tu nombre de usuario: </h2><br />
+			<form method="POST" class="recoverForm contact-form">
+				<label>Email</label>
+				<input type="text" name="email" value="" />
+				<?php echo $this->recaptcha; ?>
+				<input type="submit" style="float:none;" name="submit" value="Recuperar" />
+				
+				<?php if($this->step == 1) { ?>
+				<p style="color:#f00;"><?php echo $this->error; ?></p>
+				<?php } ?>
+			</form>
+			<?php } else { ?>
+			<p style="padding:35px;">Tu nuevo password fue enviado a tu direccion de correo electronico.</p><br />
+			<?php } ?>
+	</div>

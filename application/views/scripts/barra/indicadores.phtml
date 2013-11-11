@@ -1,0 +1,263 @@
+<?php include('modulos/cabecera.phtml') ?>
+
+<?php include('modulos/menu.phtml') ?>
+
+
+
+
+<div id="wpbody-content">
+<div id="screen-meta">
+
+
+<div class="wrap">
+	<div id="icon-users" class="icon32"><br /></div>
+<h2>Indicadores </h2>
+
+
+
+<form id="posts-filter" action="" method="get">
+    
+<ul class="subsubsub">
+<li><a href='#' class="current">All <span class="count">(<?php echo (count($this->indic_ope) + count($this->indic_ger)) ?>)</span></a></li></ul>
+
+<p class="search-box">
+	<input type="text" id="post-search-input" name="s" value="" />
+	<input type="button" value="Buscar" class="button" />
+</p>
+
+<div class="clear"></div>
+<h3>Indicadores <?php echo utf8_encode($this->detalle['descripcion']) ?></h3>
+<table class="widefat page fixed" cellspacing="0">
+	<thead>
+        <tr>
+            <th scope="col" id="cb" class="manage-column column-cb check-column">Indicador</th>
+            <th scope="col" id="cb" class="manage-column column-cb check-column">Período</th>
+            <th scope="col" id="cb" class="manage-column column-cb check-column">Resultado</th>
+        </tr>
+	</thead>
+	<tbody>
+        <tr id="page-2" class="alternate iedit">
+            <td scope="row" class="check-column"><?php echo utf8_encode($this->detalle['descripcion']) ?></td>
+            <td scope="row" class="check-column"><?php echo $this->resu['fecha'] ?></td>
+            <td scope="row" class="check-column"><?php echo $this->resu['numerador'] ?> / <?php echo $this->resu['denominador'] ?></td>
+        </tr>
+	</tbody>
+</table>
+
+
+</form>
+
+
+<form method="get" action=""><table style="display: none"><tbody id="inlineedit">
+	
+	<tr id="inline-edit" class="inline-edit-row inline-edit-row-page inline-edit-page quick-edit-row quick-edit-row-page inline-edit-page" style="display: none"><td colspan="5">
+
+	<fieldset class="inline-edit-col-left"><div class="inline-edit-col">
+		<h4>Quick Edit</h4>
+
+
+
+		<label>
+			<span class="title">Title</span>
+			<span class="input-text-wrap"><input type="text" name="post_title" class="ptitle" value="" /></span>
+		</label>
+
+		<label>
+			<span class="title">Slug</span>
+			<span class="input-text-wrap"><input type="text" name="post_name" value="" /></span>
+		</label>
+
+
+		<label><span class="title">Date</span></label>
+		<div class="inline-edit-date">
+			<div class="timestamp-wrap"><select name="mm" tabindex="4">
+			<option value="01">Jan</option>
+			<option value="02">Feb</option>
+			<option value="03">Mar</option>
+			<option value="04">Apr</option>
+			<option value="05">May</option>
+			<option value="06">Jun</option>
+			<option value="07">Jul</option>
+			<option value="08">Aug</option>
+			<option value="09">Sep</option>
+			<option value="10">Oct</option>
+			<option value="11" selected="selected">Nov</option>
+			<option value="12">Dec</option>
+</select><input type="text" name="jj" value="14" size="2" maxlength="2" tabindex="4" autocomplete="off" />, <input type="text" name="aa" value="2010" size="4" maxlength="4" tabindex="4" autocomplete="off" /> @ <input type="text" name="hh" value="03" size="2" maxlength="2" tabindex="4" autocomplete="off" /> : <input type="text" name="mn" value="40" size="2" maxlength="2" tabindex="4" autocomplete="off" /></div><input type="hidden" id="ss" name="ss" value="33" />		</div>
+		<br class="clear" />
+
+
+
+		<div class="inline-edit-group">
+			<label class="alignleft">
+				<span class="title">Password</span>
+				<span class="input-text-wrap"><input type="text" name="post_password" class="inline-edit-password-input" value="" /></span>
+			</label>
+
+			<em style="margin:5px 10px 0 0" class="alignleft">
+				&ndash;OR&ndash;			</em>
+			<label class="alignleft inline-edit-private">
+				<input type="checkbox" name="keep_private" value="private" />
+				<span class="checkbox-title">Private</span>
+			</label>
+		</div>
+
+
+	</div></fieldset>
+
+
+	<fieldset class="inline-edit-col-right"><div class="inline-edit-col">
+
+
+
+		<label>
+			<span class="title">Parent</span>
+<select name="post_parent" id="post_parent">
+	<option value="0">Main Page (no parent)</option>
+	<option class="level-0" value="2">About</option>
+</select>
+		</label>
+
+
+		<label>
+			<span class="title">Order</span>
+			<span class="input-text-wrap"><input type="text" name="menu_order" class="inline-edit-menu-order-input" value="0" /></span>
+		</label>
+
+
+		<label>
+			<span class="title">Template</span>
+			<select name="page_template">
+				<option value="default">Default Template</option>
+				
+	<option value='onecolumn-page.php' >One column, no sidebar</option>			</select>
+		</label>
+
+
+
+
+		<div class="inline-edit-group">
+					<label class="alignleft">
+				<input type="checkbox" name="comment_status" value="open" />
+				<span class="checkbox-title">Allow Comments</span>
+			</label>
+				</div>
+
+
+		<div class="inline-edit-group">
+			<label class="inline-edit-status alignleft">
+				<span class="title">Status</span>
+				<select name="_status">
+									<option value="publish">Published</option>
+					<option value="future">Scheduled</option>
+									<option value="pending">Pending Review</option>
+					<option value="draft">Draft</option>
+				</select>
+			</label>
+
+
+		</div>
+
+	</div></fieldset>
+
+	<p class="submit inline-edit-save">
+		<a accesskey="c" href="#inline-edit" title="Cancel" class="button-secondary cancel alignleft">Cancel</a>
+		<input type="hidden" id="_inline_edit" name="_inline_edit" value="42aef464d4" />			<a accesskey="s" href="#inline-edit" title="Update" class="button-primary save alignright">Update</a>
+			<img class="waiting" style="display:none;" src="http://www.wordpress-local.com/wp-admin/images/wpspin_light.gif" alt="" />
+				<input type="hidden" name="post_view" value="list" />
+		<input type="hidden" name="screen" value="edit-page" />
+		<br class="clear" />
+	</p>
+	</td></tr>
+
+	<tr id="bulk-edit" class="inline-edit-row inline-edit-row-page inline-edit-page bulk-edit-row bulk-edit-row-page bulk-edit-page" style="display: none"><td colspan="5">
+
+	<fieldset class="inline-edit-col-left"><div class="inline-edit-col">
+		<h4>Bulk Edit</h4>
+
+
+		<div id="bulk-title-div">
+			<div id="bulk-titles"></div>
+		</div>
+
+
+
+
+	</div></fieldset>
+
+
+	<fieldset class="inline-edit-col-right"><div class="inline-edit-col">
+
+
+
+		<label>
+			<span class="title">Parent</span>
+<select name="post_parent" id="post_parent">
+	<option value="-1">&mdash; No Change &mdash;</option>	<option value="0">Main Page (no parent)</option>
+	<option class="level-0" value="2">About</option>
+</select>
+		</label>
+
+
+		<label>
+			<span class="title">Template</span>
+			<select name="page_template">
+				<option value="-1">&mdash; No Change &mdash;</option>
+				<option value="default">Default Template</option>
+				
+	<option value='onecolumn-page.php' >One column, no sidebar</option>			</select>
+		</label>
+
+
+
+
+		<div class="inline-edit-group">
+			<label class="alignleft">
+			<span class="title">Comments</span>
+			<select name="comment_status">
+				<option value="">&mdash; No Change &mdash;</option>
+				<option value="open">Allow</option>
+				<option value="closed">Do not allow</option>
+			</select>
+		</label>
+			</div>
+
+
+		<div class="inline-edit-group">
+			<label class="inline-edit-status alignleft">
+				<span class="title">Status</span>
+				<select name="_status">
+					<option value="-1">&mdash; No Change &mdash;</option>
+									<option value="publish">Published</option>
+					<option value="future">Scheduled</option>
+					<option value="private">Private</option>
+									<option value="pending">Pending Review</option>
+					<option value="draft">Draft</option>
+				</select>
+			</label>
+
+
+		</div>
+
+	</div></fieldset>
+
+	<p class="submit inline-edit-save">
+		<a accesskey="c" href="#inline-edit" title="Cancel" class="button-secondary cancel alignleft">Cancel</a>
+					<input accesskey="s" class="button-primary alignright" type="submit" name="bulk_edit" value="Update" />
+				<input type="hidden" name="post_view" value="list" />
+		<input type="hidden" name="screen" value="edit-page" />
+		<br class="clear" />
+	</p>
+	</td></tr>
+	</tbody></table></form>
+
+<div id="ajax-response"></div>
+<br class="clear" />
+</div>
+
+
+<div class="clear"></div></div><!-- wpbody-content -->
+
+
+
+<?php include('modulos/footer.phtml') ?>

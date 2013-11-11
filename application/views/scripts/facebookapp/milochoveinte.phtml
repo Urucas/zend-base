@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="icon" href="/resources/favicon.ico">
+<title>Kuesty + Milochoveinte te regalan un boxer!</title>
+<link href="/resources/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body align="center" style="text-align:center; background-image:url('http://kuesty.com/resources/img/bg-pattern.png'); background-repeat:repeat; margin-top:15px;">
+
+<div align="center" style="border: 1px solid #bcbcbc; width:810px; padding:15px; border-radius: 8px; -moz-border-radius: 8px; background-color: #EEE; -moz-box-shadow: inset 0 0 3px #000; -webkit-box-shadow: inset 0 0 3px#000; box-shadow: inner 0 0 3px #000; background:rgba(255,255,255,0.8); margin-left: auto;
+margin-right: auto;">
+	<div style="margin-bottom:10px;">	
+		<img src="http://kuesty.com/resources/images/milochoveinte.png" width="800px" />
+	</div>
+	<div style="width:800px;">
+	<table cellspacing="0" cellpadding="0" width="100%" style="text-align:center;">
+	<tbody>
+		<tr>
+			<td><img src="http://kuesty.com/resources/images/kuesty-promo-logo.fw.png" /></td>
+			<td><img src="http://kuesty.com/resources/images/milochoveinte-promo-logo.fw.png" height="90%"/></td>
+		</tr>
+		<tr>
+			<td>
+				<iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fkuestyapp&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=true&amp;font&amp;colorscheme=light&amp;action=like&amp;height=80&amp;appId=106941089437708" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:350px; height:80px;" allowTransparency="true"></iframe>
+			</td>
+			<td>
+				<iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FMVIIIXX&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=true&amp;font&amp;colorscheme=light&amp;action=like&amp;height=80&amp;appId=305046129613505" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:350px; height:80px;" allowTransparency="true"></iframe>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+	<form method="post">
+		<?php if(!$this->fbpostid) { ?>
+		<a href="<?php echo $this->fb_login;?>" class="lindo-boton" style="float:none;width: 500px; margin-top: 15px;">Y dale a este boton para participar del sorteo!</a>
+		<?php }else{ ?>
+		<p  style="font-size:15px; color:#343186; padding-top:15px;">Perfecto <?php echo $this->user["first_name"]; ?> ya estas participando del sorteo de Kuesty + Milochoveinte! Viste que facil!!! <br />El sorteo se llevara a cabo el proximo miercoles 13 de marzo, estate atento!</p>					
+		<?php } ?>
+	</form>
+	</div>
+	<?php if(sizeof($this->error)) { ?>
+		<script>alert("<?php echo implode($this->error,'\n');?>")</script>
+	<?php } ?>
+</div>
+</body>
+</html>

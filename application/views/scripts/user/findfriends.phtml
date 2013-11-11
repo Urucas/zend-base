@@ -1,0 +1,40 @@
+﻿
+<div class="block-large">
+<h2><?php if($this->via_facebook) { ?> Resultados de la busqueda a traves de Facebook <?php } else { ?>Resultados de la busqueda <?php } ?><span>  </span></h2>
+	<br />
+	
+    	<div class='modal friendlist'>
+
+	<div class="contact-form"><form action="/user/findfriends/" method="get">				
+			<a class="fb-friends" href="/user/findfriends/?via_facebook=1">Buscar amigos de Facebook que usan Kuesty<a/>
+			<input type="text" name="qf" value="<?php echo $this->qf;?>" />
+			<input type="button" class="lindo-boton" value="Buscar amigos" onclick="form.submit()" /></form>
+		</div>	
+		<div clear="both"></div>
+
+		<br /> 
+	
+		<?php foreach($this->friends as $k=>$friend){ ?>
+		<div class="friendlist_friend">
+			<a href='/user/id/<?php echo $friend["id"];?>/user/<?php echo $friend["user"]?>/'>
+            	<img width="50px" src='/user/avatar/id/<?php echo $friend["id"]?>' />
+			</a>
+			<p><b><?php echo $friend["nombre"];?> <?php echo substr($friend["apellido"],0,1);?>.</b><br />
+			<p><b><?php echo $friend["user"];?></b><br />
+			<?php echo $friend["puntos"]; ?> puntos<br />
+			
+			<?php 
+				$fid = $friend["id"]; 
+				if(in_array($fid, $this->friends_id)) { ?>
+				<b>Ya estas contectado</b><br />
+			<?php } ?>
+
+			<a class="friends"> <span></span> <?php echo $friend["cantidad_amigos"]; ?> amigos</a></p>
+		</div>	
+		<?php } ?>
+       
+    	</div>
+        
+    </div>
+    
+

@@ -1,0 +1,155 @@
+
+
+		<div class="block">
+    
+<<<<<<< .mine
+		<h2>Aca nomas<span></span></h2>
+=======
+    	<h2>Aca nomas<span></span></h2>
+        <ul>
+			<?php for($i=0; $i<sizeof($this->nearby); $i++) { 
+				$local = $this->nearby[$i]; 
+			?>
+        	<li>
+            <a class="thumb-locales" href="/restaurants/local/?id=<?php echo($local["id"]); ?>&name=<?php echo(preg_replace("/\s+/","-",$local["nombre"]));?>"><img src="<?php echo($local["logo"])?>" alt="<?php echo($local["nombre"]);?>" width="105px" /></a>
+            <p>
+            	<?php echo( $local["nombre"]); ?> <span>&nbsp;</span>
+            	<span class="rank"><?php echo($local["cantidad_checkins"]); ?> calificaciones</span>
+                <span class="stars">
+					<?php for($j=1; $j <= $local["stars"]; $j++) { ?>
+            		<a class="active" href=""></a>
+					<?php } ?>	
+					<?php for($j=0; $j < (5 -$local["stars"]); $j++) { ?>
+            		<a href=""></a>
+					<?php } ?>
+            	</span>
+                <span class="dolar">
+					<?php for($j=1; $j <= $local["pesos"]; $j++) { ?>
+            		<a class="active" href=""></a>
+					<?php } ?>	
+					<?php for($j=0; $j < (5 -$local["pesos"]); $j++) { ?>
+            		<a href=""></a>
+					<?php } ?>
+            	</span>
+            </p>
+            </li>
+            <?php } ?>
+>>>>>>> .r458
+
+		<?php if($this->nearby) { ?>
+		<ul id="nearbyList">
+			<?php echo $this->render("/restaurants/nearby.phtml"); ?>
+        </ul>
+		<button onclick="kuesty.nearby()" class="view-more">ver m&aacute;s</button>
+		<?php } else { ?>
+
+		<div id="geoPermiso">Pedir geolocalizacion</div>
+		<button onclick="kuesty.getGeolocation();">Buscar lugares cerca mio!</button>
+
+		<?php } ?>
+    
+<<<<<<< .mine
+=======
+    	<h2>Nuevos<span></span></h2>
+        <ul>
+			<?php for($i=0; $i<sizeof($this->nuevos); $i++) { 
+				$local = $this->nuevos[$i]; 
+			?>
+        	<li>
+            <a class="thumb-locales" href="/restaurants/local/?id=<?php echo($local["id"]); ?>&name=<?php echo(preg_replace("/\s+/","-",$local["nombre"]));?>"><img src="<?php echo($local["logo"])?>" alt="<?php echo($local["nombre"]);?>" width="105px" /></a>
+            <p>
+            	<?php echo( $local["nombre"]); ?> <span>&nbsp;</span>
+            	<span class="rank"><?php echo($local["cantidad_checkins"]); ?> calificaciones</span>
+                <span class="stars">
+					<?php for($j=1; $j <= $local["stars"]; $j++) { ?>
+            		<a class="active" href=""></a>
+					<?php } ?>	
+					<?php for($j=0; $j < (5 -$local["stars"]); $j++) { ?>
+            		<a href=""></a>
+					<?php } ?>
+            	</span>
+                <span class="dolar">
+					<?php for($j=1; $j <= $local["pesos"]; $j++) { ?>
+            		<a class="active" href=""></a>
+					<?php } ?>	
+					<?php for($j=0; $j < (5 -$local["pesos"]); $j++) { ?>
+            		<a href=""></a>
+					<?php } ?>
+            	</span>
+            </p>
+            </li>
+            <?php } ?>
+
+        </ul>
+        <button onclick="document.location.href= '/restaurants'" class="view-more">ver m&aacute;s</button>
+    
+>>>>>>> .r458
+    </div>
+
+	<div class="block middle">
+    
+    	<h2>Destacados<span></span></h2>
+         <ul>
+			<?php for($i=0; $i<sizeof($this->tops); $i++) { 
+				$local = $this->tops[$i];
+			?>			
+        	<li>
+            <a class="thumb-locales" href="/restaurants/local/?id=<?php echo( $local["id"]);?>&name=<?php echo(preg_replace("/\s+/","-",$local["nombre"]));?>"><img src="<?php echo( $local["logo"])?>" width="105px" alt="<?php echo( $local["nombre"]);?>" /></a>
+            <p>
+            	<?php echo( $local["nombre"]); ?> <span>Categoria</span>
+            	<span class="rank"><?php echo( $local["cantidad_checkins"]); ?> calificaciones</span>
+                <span class="stars">
+					<?php for($j=1; $j <= $local["stars"]; $j++) { ?>
+            		<a class="active" href=""></a>
+					<?php } ?>	
+					<?php for($j=0; $j < (5 -$local["stars"]); $j++) { ?>
+            		<a href=""></a>
+					<?php } ?>
+            	</span>
+                <span class="dolar">
+					<?php for($j=1; $j <= $local["pesos"]; $j++) { ?>
+            		<a class="active" href=""></a>
+					<?php } ?>	
+					<?php for($j=0; $j < (5 -$local["pesos"]); $j++) { ?>
+            		<a href=""></a>
+					<?php } ?>
+            	</span>
+				
+			</p>
+			</a>
+            </li>
+            <?php } ?>
+
+        </ul>       
+        <button onclick="document.location.href= '/restaurants?search=last'"  class="view-more">ver mas</button>
+    
+    </div>
+
+
+<div class="top-users">
+    <h2>+ colaboradores</h2>
+    	
+		<?php foreach($this->top_users as $user) { ?>
+    	<div class="user">
+    		<img src="<?php echo($user["avatar"]);?>" alt="<?php echo( $user["user"]); ?>" style="width:50px;min-height:50px;"/>
+    		<p><?php echo($user["user"]);?>
+			<?php if( (int) $user["cantidad_reviews"]) { ?>
+			<span> <?php echo((int) $user["cantidad_reviews"]);?> rese&ntilde;as</span>
+			<?php } ?>
+			<?php if((int) $user["cantidad_checkins"]) { ?>
+			<span> <?php echo((int) $user["cantidad_checkins"]);?> checkins</span>
+			<?php } ?>
+			<?php if((int) $user["cantidad_tips"]) { ?>
+			<span> <?php echo((int) $user["cantidad_tips"]);?> tips</span>
+			<?php } ?>
+			</p>
+    		<a href="/user?id=<?php echo($user['id']);?>&user=<?php echo($user['user']); ?>">Ver perfil</a>
+    		<div class="clearer"></div>
+    	</div>
+    	<?php } ?>
+    	
+    </div>
+
+   
+
+

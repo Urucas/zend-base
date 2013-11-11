@@ -1,0 +1,53 @@
+<?php if ($this->pageCount): ?>
+<div class="paginador">
+
+<ul>
+
+<!--
+<!-- First page link -->
+<?php if (isset($this->previous)): ?>
+<li>
+  <a onclick='kuesty.searchRestaurant( <?php echo $this->first ?> )'>
+    First
+  </a> |
+</li>
+<?php endif; ?>
+ 
+<!-- Previous page link -->
+<?php if (isset($this->previous)): ?>
+<li>
+  <a onclick='kuesty.searchRestaurant( <?php echo $this->previous ?> )'>
+    &lt; Previous
+  </a>
+</li>
+<?php endif; ?>
+<?php
+		
+	// Render each item for the current page in a list-item
+	foreach ($this->pagesInRange as $item) {
+	    echo "&nbsp;<li><a onclick='kuesty.searchRestaurant(" . $item . ")'>" . $item . "</a></li> &nbsp;";
+//	    echo "&nbsp;<li><a href='" . $this->url( array( 'page' => $item )) ."'>" . $item . "</a></li> &nbsp;";
+	}
+ 
+?>
+
+<!-- Next page link -->
+<?php if (isset($this->next)): ?>
+<li>
+  <a onclick='kuesty.searchRestaurant( <?php echo $this->next ?> )'>
+    Next &gt;
+  </a> |
+</li>
+<?php endif; ?>
+ 
+<!-- Last page link -->
+<?php if (isset($this->next)): ?>
+<li>
+  <a onclick='kuesty.searchRestaurant( <?php echo $this->last ?> )'>
+    Last
+  </a>
+</li>
+<?php endif; ?>
+</ul>
+</div>
+<?php endif; ?>

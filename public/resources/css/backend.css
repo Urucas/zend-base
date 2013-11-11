@@ -1,0 +1,104 @@
+
+/* BACKEND */
+.wrap h2 {color:green;}
+#adminmenu .menu-top-first a.menu-top, 
+.folded #adminmenu li.menu-top-first, 
+#adminmenu .wp-submenu .wp-submenu-head,
+#adminmenu a.menu-top {
+color:brown;
+}
+td {vertical-align:top;}
+.ui-state-error {float:right;margin-left:10px;}
+#wphead {height:75px;}
+#wpbody-content {float:left;padding-left:20px;width:95%;}
+#adminmenu {width:180px;}
+#adminmenu .wp-submenu {display:block !important;}
+.widefat .check-column {width:9.2em;padding:7px 7px 8px;}
+#menu-emp .wp-menu-image-emp {background:url("/resources/img_back/menu.png?ver=20100531") no-repeat 0px -33px;float:left;height:28px;width:28px;}
+#menu-emp:hover .wp-menu-image-emp {background:url("/resources/img_back/menu.png?ver=20100531") no-repeat 0px -33px;}
+table label {color:#222222;text-shadow:0 1px 0 #FFFFFF;}
+.table_content {border-top:0 !important;}
+.table_content .title {color:#777777;font-family:Georgia,"Times New Roman","Bitstream Charter",Times,serif;font-size:13px;font-style:italic;padding:5px 10px 15px;border-bottom:1px solid #ECECEC;}
+.table_content .title span {float:left;}
+.wp-last-item {border-bottom:1px solid #E3E3E3;}
+#dashboard_right_now .table_content {width:100%;}
+#dashboard_right_now .table_content table {width:460px;}
+#dashboard_right_now .table_content table td {line-height:20px;}
+#dashboard_right_now .inside {padding-top:10px;}
+#estadisticas-home tr td {line-height:25px;color:#777777 !important;font-family:"Lucida Grande",Verdana,Arial,"Bitstream Vera Sans",sans-serif;font-size:12px;}
+
+#marginador_centro {    float: left;
+    margin-top: 16px;
+    padding-left: 20px;
+    width: 87%;}
+#titulo_categoria {    margin-bottom: 30px; background: url("/resources/img_back/icons32.png?ver=20100531") no-repeat scroll -552px -5px transparent;
+    clear: both;
+    float: left;
+    padding-left: 42px;
+    width: 100%;}
+#titulo_seccion {background:#f9f9f9;line-height: 0; padding: 1px;}
+
+#categorias-element{
+	text-align:left;
+}
+
+#form #nombre-label, #form #descripcion-label, #form #localidad-label, #form #latitud-label,
+#form #longitud-label, #form #telefono-label, #form #direccion-label, #form #imagen-label,
+#form #estado-label, #web-label, #facebook-label, #tipo-label, #keywords-label,
+#id_indicador-label, #form_objetivos #valor-label, #form_objetivos #mes-label, 
+#form_objetivos #anio-label, #elmetre-label, #horario-label {    float: left;
+    line-height: 25px;
+    padding-right: 10px;
+    text-align: right;
+    width: 30%;}
+#form #nombre, #form #localidad, #form #latitud, #form #horario,
+#form #longitud, #form #telefono, #form #direccion, #form #web, #form #facebook,
+#form #estado, #relacion_obj, #tipo, #keywords,#id_indicador, #form textarea#descripcion, #form textarea#denominador, #elmetre {float:left;width: 300px;}
+#form_objetivos #valor, #form_objetivos #mes, #form_objetivos #anio  {float:left;width: 100px;}
+/*#form dt {float: left; width: 300px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; }*/
+#form dd {float: left; width: 300px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px;}
+#form dl {width: 620px;}
+
+.rotulo_radio {text-align: left;}
+.rotulo_radio label {padding:3px 10px 0 0;}
+.rotulos_campos, .rotulo_textarea, .rotulo_radio, .rotulo_combobox {clear:both;}
+.rotulos_btn { clear: both; float: left; margin-top: 10px;  width: 641px;}
+#form_areas {margin-top:30px;}
+#form {clear:both;}
+#form_indicadores textarea {height:150px;}
+.volver-forms {    float: right;
+    margin-right: 20px;
+    margin-top: 23px;}
+
+
+a.button {text-decoration:underline;color: #21759B;}
+
+.search-box-bitacora {margin:30px 0;}
+.search-box-bitacora label {padding:0 10px;}
+#posts-filter {margin:20px 0 0 0;}
+#posts-filter ul li {margin-right:10px;}
+
+.link1, .link2, .link3 {text-decoration:none !important;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

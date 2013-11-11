@@ -1,0 +1,107 @@
+﻿<div class="search-map">
+	<h2>Mapa</h2>
+	<div id="searchMap" style="width:300px; height:300px;"></div>
+</div>
+
+<div class="block-large" style="width:650px;">
+	<h2><?php echo $this->titulo; ?><span></span></h2>
+	
+
+	<script type="text/javascript">var locales=[];</script>	
+	<?php foreach($this->locales as $local) { ?>
+
+<script type="text/javascript">
+		var local = {
+			"nombre" : '<?php echo $local["nombre"]; ?>',
+			"direccion" : '<?php echo $local["direccion"]; ?>',
+			"href" : '/restaurants/local/id/<?php echo $local["id"];?>/name/<?php echo preg_replace("/\s+/","-",$local["nombre"]);?>',
+			"id"     : <?php echo $local["id"]; ?>,
+			"lat"  : <?php echo $local["latitud"]; ?>,
+			"lng"  : <?php echo $local["longitud"]; ?>,
+			"ancla": 'local-<?php echo $local["id"];?>',
+			"cantidad_calificaciones": <?php echo (int) $local["cantidad_calificaciones"]; ?>,
+			"stars" : <?php echo $local["stars"]; ?>,
+			"pesos" : <?php echo $local["pesos"]; ?>,
+			"logo_mobile": '<?php echo $local["logo_mobile"]; ?>'
+		}
+		locales.push(local);
+	</script>
+
+	<a name="local-<?php echo $local['id']; ?>"></a>
+	<div class="user-profile2" id="local-<?php echo $local['id'];?>">
+    	<a class="thumb-locales" href="/restaurants/local/id/<?php echo $local["id"];?>/name/<?php echo preg_replace("/\s+/","-",$local["nombre"]);?>"> <img class='avatar' src="<?php if($local["logo"] == ""){echo ("http://www.kuesty.com/resources/images/no_image.png");}else{ echo( $local["logo"]);} ?>" alt="<?php echo $local["nombre"]?>"/></a>
+        
+        	<div class="tit-tips2">	
+    		<a href="/restaurants/local/id/<?php echo $local["id"];?>/name/<?php echo preg_replace("/\s+/","-",$local["nombre"]);?>"><?php echo $local["nombre"]?> <span>&nbsp;</span></a>
+			</div>
+            
+            <div class="icons-food floating">
+		<?php 
+			$categorias = $local["categorias"];
+			if(sizeof($categorias)) { 
+				foreach($categorias as $i => $categoria) { ?>
+					<?php if($i >3) { continue; } ?>
+    				<a class="<?php echo $categoria["cssClass"]; ?>" href="/restaurants/?q=&cat=<?php echo $categoria["id"];?>" title="<?php echo $categoria["nombre"];?>"><img src="<?php echo $categoria["imgURL"];?>" width="36px" height="36px" alt="<?php echo $categoria["nombre"];?>" /></a>					
+				<?php }
+			} else {
+				echo '<a>&nbsp;</a>';
+			} ?>
+    		</div>
+            
+            <div class="rank-dolar duplicate3">
+            		<?php echo (int)$local["cantidad_calificaciones"]; ?> calificaciones
+                 <span class="stars">
+					<?php for($j=1; $j <= $local["stars"]; $j++) { ?>
+            		<a class="active" href=""></a>
+					<?php } ?>	
+					<?php for($j=0; $j < (5 -$local["stars"]); $j++) { ?>
+            		<a href=""></a>
+					<?php } ?>
+            	</span>
+                <span class="dolar">
+					<?php for($j=1; $j <= $local["pesos"]; $j++) { ?>
+            		<a class="active" href=""></a>
+					<?php } ?>	
+					<?php for($j=0; $j < (5 -$local["pesos"]); $j++) { ?>
+            		<a href=""></a>
+					<?php } ?>
+            	</span>
+                
+         	</div>
+            
+            <p class="desc">
+			<?php echo $local["descripcion"]; ?>...
+			</p>
+
+			<?php if($local["has_checkinespecial"]) { ?>
+			<p class="cespecial"><?php echo $local["desc_checkin"];?></p>
+			<?php } ?>
+
+            <div class="clearer-large"></div>
+            
+                     
+    
+			</div> 
+
+					<?php } ?>
+			 </div>
+
+				<script type="text/javascript">
+					
+				navigator.geolocation.getCurrentPosition(function(geo){ 
+					coords = geo.coords;
+				localStorage.setItem("coords", coords);
+				localStorage.setItem("lat", coords.latitude);
+				localStorage.setItem("lng", coords.longitude);
+				kuesty.drawMap(locales, "searchMap");
+
+			});
+
+									</script>
+
+		<script type="text/javascript">
+     $(function() {        
+       $(".search-map").floatingFixed({ padding: 5 });
+     });
+   </script>
+	

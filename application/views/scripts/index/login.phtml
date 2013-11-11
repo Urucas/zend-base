@@ -1,0 +1,89 @@
+﻿	<?php echo $this->partial( "modules/search.phtml" ); ?>
+		<div id="contenido">
+	        <div class="left">
+		        <div class="toprated">
+					<?php foreach($this->tops as $k=>$v){ ?>
+                	<div class="post_toprated">
+                    	<div class="thumb"><img src="<?php if($v['logo'] == "")  echo("/resources/img_example/thumb_toprated.png"); else echo($v["logo"]); ?>" width="84px" height="84px" border="0"/></div>
+                        <div class="reviewed"><?php echo $v["cantidad_checkins"] ?> calificaciones</div>
+                        <div class="name"><?php echo $v["nombre"] ?></div>
+                        <div class="rate">
+							<?php for($i=1;$i<6;$i++){ ?>
+                            	<a <?php if($i<=$v['stars']) echo("class=\"activa\""); ?>></a>
+							<?php } ?>
+	                        <br clear="all" />
+                        </div>
+					</div>
+					<?php } ?>
+                </div>
+		        <div class="checkins">
+                	<div class="content_checkins">
+	                    <div class="center_checkins">
+							<?php foreach($this->checkins as $k=>$v){ ?>	
+                            <div class="post_checkins">
+                                <div class="thumb"><img src=<?php if($v['logo'] == "")  echo("/resources/img_example/thumb_toprated.png"); else echo($v["logo"]); ?> width="90px" height="90px" border="0"/></div>
+                                <div class="time">hace 38 segundos</div>
+                                <div class="datos">
+                                    <div class="titulo"><?php echo $v["nombre_resto"] ?></div>
+                                    <div class="texto"><?php echo $v["tip"] ?></div>
+			                        <div class="rate">
+										<?php for($i=1;$i<6;$i++){ ?>
+                        			    	<a <?php if($i<=$v['rating']) echo("class=\"activa\""); ?>></a>
+										<?php } ?>
+	        			                <br clear="all" />
+                        			</div>
+                                </div>
+                                <br clear="all" />
+                                <div class="name"><?php echo $v["nombre_usr"] ?></div>
+                                <div class="agregar agregar_activa">Agregar como amigo</div>
+							</div>
+                            <?php } ?>
+                            
+                    </div>
+                </div>
+                </div>
+				<div class="nuevos_locales">
+                	<div class="content_nuevos_locales">
+	                    <div class="center_nuevos_locales">
+							<?php foreach($this->last_locales as $k=>$v){ ?>						
+                            <div class="post_nuevos_locales">
+                                <div class="thumb"><img src=<?php if($v['logo'] == "")  echo("/resources/img_example/thumb_toprated.png"); else echo($v["logo"]); ?> height="60px" width="60px" border="0" title="Ignacio Hereñu"/></div>
+                                <div class="datos">
+                                    <div class="titulo"><?php echo $v["nombre"] ?></div>
+                                    <div class="texto"><?php echo $v["descripcion"] ?></div>
+                                </div>
+                                <br clear="all" />
+							</div>
+                            <?php } ?>
+                            <br clear="all"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+	        <div class="right">
+				<div class="titulo">
+                	<h2>Sponsored Restaurants</h2>
+				</div>
+				<?php for($i=0;$i<2;$i++){ ?>
+				<div class="post_sponsored">
+	              	<div class="thumb"><img src="/resources/img_example/thumb.png" border="0"/></div>
+					<div class="name">Posada del Hidalgo</div>
+                    <div class="rate">
+                        <a class="activa"></a>
+                        <a class="activa"></a>
+                        <a class="activa"></a>
+                        <a></a>
+                        <a></a>
+                        <br clear="all" />
+                    </div>
+					<br clear="all" />
+    	            <div class="texto">
+                    	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris commodo nisi porttitor quam vestibulum mollis. Suspendisse turpis lacus
+                    </div>
+	            </div>
+                <?php } ?>
+                
+		<?php echo $this->render( '/modules/mayores_contribuidores.phtml' ); ?>
+            </div>
+            <br clear="all" />
+	</div>

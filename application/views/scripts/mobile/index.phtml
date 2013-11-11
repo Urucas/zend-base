@@ -1,0 +1,60 @@
+﻿<script type="text/javascript">
+	try {
+		console.log(navigator.userAgent);
+
+		if(navigator.userAgent.match(/Blackberry/i)) {
+			
+			document.location.href = "http://goo.gl/UHF67";
+
+		}else if(navigator.userAgent.match(/Android/i)) {
+
+			document.location.href = "market://details?id=com.Kuesty";
+
+		}else if(navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i)) {
+		
+			document.location.href = "http://goo.gl/NUq8r";
+		} 
+	}catch(e) {
+		console.log(e);
+	}
+</script>
+
+	<div id="avisoHome">
+			<h2>Kuesty es una guía de bares y restos para tu smartphone.</h2>
+			<p>Llegó KUESTY, la aplicación para tu móvil que te permite localizar el bar, pub o resto que prefieras, su calificación en un ranking, conocer los mejores platos de cada uno, la distancia a la que estás en este momento y muchos servicios más! Bajatela y empeza a disfrutarla ya.</p>
+			<button onclick="document.location.href='/user/login'" class="lindo-boton">Crear una cuenta de Kuesty</button>
+	</div>
+	<div class="clearer"></div>
+
+
+
+<div class="block fullwidth">
+
+
+
+  <div class="mobile-devices"></div>
+    
+    	<h2>Kuesty M&oacute;vil</h2>
+
+	
+        <div class="leftside">
+        
+        	<img src="resources/img/title-movil.png" />
+            
+            <ul>
+            	<li><a target="_blank" href="http://goo.gl/NUq8r">iPhone</a></li>
+                <!-- li><a onclick="alert('Muy Pronto!')" href="#">Nokia</a></li-->
+                <li><a target="_blank" href="http://goo.gl/C2t3D">Android</a></li>
+                <li><a target="_blank" href="http://goo.gl/UHF67">Blackberry</a></li>
+                <li><a target="_blank" href="http://goo.gl/sEkg3">Blackberry OTA (*)</a></li>
+				
+            </ul>
+        	<span>(*) Instala Kuesty directamete desde nuestros servidor si no puedes hacerlo desde el appworld </span>
+        </div>
+    
+    </div>
+
+	
+    
+    
+ 

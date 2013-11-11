@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  dir="ltr" lang="en-US">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Backend kuesty</title>
+    <link rel="shortcut icon" href="/resources/images/favicon.ico" />
+
+    <!-- jQuery y UI  con sus estilos y todo-->
+
+	<script type="text/javascript" src="/resources/js/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="/resources/js/jquery-ui-1.8.18.custom.min.js"></script>
+<!--    <script type="text/javascript" src="/resources/js/jquery.path.js"></script>-->
+    <script type="text/javascript" src="/resources/js/backend.js"></script>
+
+
+	<link href="/resources/css/ui-lightness/jquery-ui-1.8.18.custom.css" rel="stylesheet" type="text/css" />
+
+    <!-- Pam -->
+<!--    <script type="text/javascript">
+        $(document).ready(function(){
+        	//Calendar para fechas mas actuales
+        	$('.datepicker_actual').datepicker({ changeYear: true,changeMonth: true,yearRange: '1980:2010', dateFormat: 'yy-mm-dd' });
+        });
+    </script>-->
+    <link type="text/css" rel="stylesheet" href="/resources/css/jquery.ui.theme.css" />
+
+    <link type="text/css" rel="stylesheet" href="/resources/css/jquery.ui.datepicker.css" />
+    <link type="text/css" rel="stylesheet" href="/resources/css/load-styles.css" />
+    <link type="text/css" rel="stylesheet" href="/resources/css/back-color.css" />
+    <link type="text/css" rel="stylesheet" href="/resources/css/backend.css" />
+    
+</head>
+<body class="wp-admin no-js  index-php">
+<div id="wpwrap">
+<div id="wpcontent">
+<div id="wphead">
+
+<a href="/barra/index" title="Visit Site"><img id="header-logo" src="/resources/images/logo.png" alt="Kuesty" width="190" height="60" /></a>
+
+<div id="wphead-info">
+<div id="user_info">
+    <p>Bienvenido, <b><?=$this->username?></b> | <a href="/barra/logout" title="Log Out">Log Out</a></p>
+</div>
+
+<!-- Para las traducciones
+<div id="favorite-actions">
+	<div id="favorite-first"><a href="post-new.php">New Post</a></div><div id="favorite-toggle"><br /></div><div id="favorite-inside"><div class='favorite-action'><a href='edit.php?post_status=draft'>Drafts</a></div>
+	<div class='favorite-action'><a href='post-new.php?post_type=page'>New Page</a></div>
+	<div class='favorite-action'><a href='media-new.php'>Upload</a></div>
+	<div class='favorite-action'><a href='edit-comments.php'>Comments</a></div>
+	</div>
+</div-->
+
+</div>
+</div>
+
+<div id="wpbody">
+
+    <ul id="adminmenu">
+
+	<li class="wp-first-item wp-has-submenu wp-has-current-submenu wp-menu-open menu-top menu-top-first menu-icon-dashboard menu-top-last" id="menu-dashboard">
+		<div class='wp-menu-image'><a href='/barra/index'><br /></a></div><a href='/barra/index' class="wp-first-item wp-has-submenu wp-has-current-submenu wp-menu-open menu-top menu-top-first menu-icon-dashboard menu-top-last" tabindex="1">Inicio</a>
+		<div class='wp-submenu'><div class='wp-submenu-head'>Inicio</div><ul><li class="wp-first-item current"><a href='/barra/index' class="wp-first-item current" tabindex="1">Panel</a></li></ul></div>
+	</li>
+	<li class="wp-menu-separator"><a class="separator" href="?unfoldmenu=1"><br /></a></li>
+	<li class="wp-has-submenu menu-icon-post menu-top-first" id="menu-posts">
+		<div class='wp-menu-image'><a href=''><br /></a></div>
+		<a href='' class="wp-has-submenu menu-top menu-icon-post menu-top-first" tabindex="1">ABM's</a>
+		<div class='wp-submenu'>
+			<ul>
+				<li class="wp-first-item"><a href='/barra/administradores' class="wp-first-item" tabindex="1">Administradores</a></li>
+				<li><a href='/barra/categorias' tabindex="1">Categorias</a></li>
+                <!-- li><a href='/barra/localidades' tabindex="1">Localidades</a></li-->
+                <li><a href='/barra/locales' tabindex="1">Locales</a></li>
+                <!-- li><a href='/barra/paises' tabindex="1">Pa&iacute;ses</a></li-->
+                <!-- li><a href='/barra/provincias' tabindex="1">Provincias</a></li-->
+                <!-- li><a href='/barra/reviews' tabindex="1">Reviews</a></li-->
+                <li><a href='/barra/usuarios' tabindex="1">Usuarios</a></li>
+			</ul>
+		</div>
+	</li>
+
+	<li class="wp-menu-separator-last"><a class="separator" href="#"><br /></a></li>
+
+</ul>
+
+
+    <?php echo $this->layout()->content ?>
+
+</div><!-- wpwrap -->
+
+
+</body>
+</html>
+</body>
+</html>

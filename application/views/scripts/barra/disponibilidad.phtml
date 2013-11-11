@@ -1,0 +1,81 @@
+
+<div class="main"> 
+	<div class="main-wrap">
+		
+   
+   
+
+<?=$this->msg	?><br>
+
+			<div class="content-box_iven">
+				
+        <div class="content-box_iven">
+        <div class="box-header clear">
+<ul class="tabs clear">
+						<li><a href="#">COLOCAR LA FECHA</a></li>
+</ul>
+                <h2>Panel de Disponibilidad</h2>
+        </div>
+
+        <div class="box-body clear">
+<div class="demo">
+
+<div id="datepicker"></div>
+
+
+</div>
+        
+                    <?php foreach( $this->habitaciones as $piso => $habitacionesPorPiso )  {   ?>
+                        <div class="contiene_pisos">
+                        <?php foreach( $habitacionesPorPiso as $habNro => $habEstado )  {   ?>
+
+                            <div class="<?=$habEstado?>" id="<?=$habNro?>">
+                                    <span class="room_n">
+                                        <a href="javascript:void(0);"  onclick="javascript:jsform.habilitarFormReservas( <?=$habNro?> )" id="abrirPop_<?=$habNro?>"><?=$habNro?></a>
+                                    </span>
+
+                                    <span class="selector">
+                                        <select id="select<?=$habNro?>" class="sell"  onchange="javascript:jsform.cambiarEstadoReserva( <?=$habNro?>, this.value )" >
+                                                <?php   foreach( $this->estados as $key => $estado )    {
+                                                    $selected = ( $estado['nombre'] == $habEstado ) ? 'selected' : '';
+                                                 ?>
+                                                    <option  id="option_<?=$habNro?>_<?=$estado['nombre']?>" value="<?=$estado['id']?>" <?=$selected ?>><?=ucfirst( $estado['nombre'] )?></option>
+                                                <?php   }   ?>
+                                            </select>
+                                    </span>
+
+                            </div>
+
+                        <?php   }   ?>
+                            </div>
+                    
+                    <?php   }   ?>
+	
+
+<!--
+                     <div class="disponible" id="101">
+                                    <span class="room_n">
+                                    <a href="javascript:void(0);"  id="abrirPop">101</a>
+                                    </span>
+
+                                    <span class="selector">
+                                        <select id="select101" class="sell" onchange="javascript:jsform.cambiarEstadoReserva( 101, this.value )" >
+                                                <?php   foreach( $this->estados as $key => $estado )    {   ?>
+                                            <option value="<?=$estado['id']?>" ><?=ucfirst( $estado['nombre'] )?></option>
+                                                <?php   }   ?>
+                                            </select>
+                                    </span>
+
+                            </div>
+-->
+	
+	<!-- contiene_pisos -->
+
+				<div id="table">
+
+				</div>
+        
+				</div>
+
+			</div>
+
