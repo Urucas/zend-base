@@ -1,5 +1,5 @@
 <?php 
-abstract class My_Utils {
+abstract class Urucas_Utils {
 
 	public static function ago($time)
 	{
@@ -28,37 +28,5 @@ abstract class My_Utils {
 		return " $tense $difference $periods[$j]";
 	}
 
-	public function localAbierto($horarios) {
-		
-		$now  = date("G:i:s"); 
-		$now  = date('G:i:s', strtotime($now . ' + 4 hours'));	
-			
-		foreach($horarios as $horario) {
-		
-			$ini  = strtotime($horario["hora_ini"]);
-			$fin  = strtotime($horario["hora_fin"]);
-			$now  = strtotime($now);
-
-			// esto para el caso en q se ponga por ej. como en el almacen de pizzas, de 09:00 a 01:00
-			if($fin == $ini) {
-				return 1;
-			}
-
-			if($fin < $ini) {
-						
-				if($now <= $fin && $now <= $ini) {
-					return 1;
-				}elseif($now >= $fin && $now >= $ini) {
-					return 1;
-				}	
-
-			} else {
-				if($now >= $ini && $now <= $fin) {
-					return 1;
-				}
-			}
-		}
-		return 0;
-	}
 
 }
