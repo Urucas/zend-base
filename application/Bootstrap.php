@@ -16,8 +16,8 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 					'namespace' => 'Model',
 				),
 				'mylibs' => array(
-					'path' => '../library/My',
-					'namespace' => 'My',
+					'path' => '../library/Urucas',
+					'namespace' => 'Urucas',
 				),
 				'filters' => array(
 					'path' => 'filters',
