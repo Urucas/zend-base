@@ -1,5 +1,5 @@
 <?php
-class My_HTMLDecoder {
+class Urucas_HTMLDecoder {
 
 	public static function encode($cadena) {
 	

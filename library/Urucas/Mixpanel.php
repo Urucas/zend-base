@@ -1,5 +1,5 @@
 <?php 
-class My_Mixpanel {
+class Urucas_Mixpanel {
 /*
 If you wish to do metric logging from your backend, the best method of doing this is 
 to do it in a non-blocking way. This will let your pages continue to execute at
@@ -16,11 +16,7 @@ Feel free to modify this code to your own environments liking
     }
 	function track($event, $properties=array()) {
 
-		if(preg_match("/kuesty.local/",$_SERVER["HTTP_HOST"])) {
-			return;		
-		}
-
-        $params = array(
+	    $params = array(
             'event' => $event,
             'properties' => $properties
             );
