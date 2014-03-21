@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Backend Administracion</title>
+	<link rel="shortcut icon" href="/resources/images/favicon.ico" />
+
+	<script src="/js/jquery-1.11.0.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/css/backend/style.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/css/backend/navi.css" media="screen" />
+    
+    <script type="text/javascript">
+        $(function(){
+        	$(".box .h_title").not(this).next("ul").hide("normal");
+			try { $(".box .h_title").not(this).next("#<?php echo $this->seccion;?>").show("normal"); }catch(e){};
+        	$(".box").children(".h_title").click( function() { $(this).next("ul").slideToggle(); });
+        });
+	</script>
+    
+</head>
+<body>
+<div class="loading_modal">cargando...</div>
+<div class="wrap">
+	<div id="header">
+		<div id="top">
+			<div class="left">
+            <p>Bienvenido, <strong><?php echo ucfirst($this->user); ?></strong> [ <a href="/backend/logout">logout</a> ]</p>
+			</div>
+			<div class="right">
+				<div class="align-right">
+					<p>BAUEN PILAY</p>
+				</div>
+			</div>
+        </div>
+    </div>
+    <div id="content">
+		<div id="sidebar">
+			<div class="box">
+				<div class="h_title">&#8250; Misc</div>
+				<ul id="home">
+					<li class="b1"><a class="icon view_page" href="/backend/inicio">Home</a></li>
+                    <li class="b2"><a class="icon contact" href="/backend/contacto">Contacto</a></li>
+					<li class="b1"><a class="icon users" href="/backend/rsociales">Redes sociales</a></li>
+					<li class="b2"><a class="icon config" href="/backend/adminp">Administrador</a></li>
+				</ul>
+			</div>
+			<div class="box">
+				<div class="h_title">&#8250; Empresa</div>
+				<ul id="empresa">
+					<li class="b1"><a class="icon report" href="/backend/nuif">Normativa UIF</a></li>
+					<li class="b2"><a class="icon page" href="/backend/historia">Historia</a></li>
+					<li class="b2"><a class="icon page" href="/backend/oficinas">Oficinas Comerciales</a></li>
+					<li class="b1"><a class="icon report" href="/backend/rse">RSE</a></li>
+				</ul>
+			</div>
+			<div class="box">
+				<div class="h_title">&#8250; Organigrama</div>
+				<ul id="organigrama">
+					<li class="b1"><a class="icon report" href="/backend/sector">Sectores</a></li>
+					<li class="b2"><a class="icon page" href="/backend/puesto">Puestos</a></li>
+					<li class="b1"><a class="icon category" href="/backend/empleado">Personas</a></li>
+				</ul>
+			</div>
+
+			<div class="box">
+				<div class="h_title">&#8250; Beneficios</div>
+				<ul id="beneficios">
+					<li class="b1"><a class="icon page" href="/backend/aeducacion">Aporte a la educación</a></li>
+				</ul>
+			</div>
+			<div class="box">
+				<div class="h_title">&#8250; Estado de Obras</div>
+				<ul id="obras">
+					<li class="b1"><a class="icon config" href="/backend/radioconstruccion">Radio de Construcción</a></li>
+                    <li class="b2"><a class="icon report" href="/backend/aobras">Avance de Obras</a></li>
+				</ul>
+			</div>
+			<div class="box">
+				<div class="h_title">&#8250; Novedades</div>
+				<ul id="novedades">
+					<li class="b1"><a class="icon report" href="/backend/novedades">Novedades</a></li>
+				</ul>
+			</div>
+		
+			<div class="box">
+				<div class="h_title">&#8250; Clientes</div>
+				<ul id="clientes">
+					<li class="b1"><a class="icon view_page" href="/backend/aviso">Aviso importante</a></li>
+					<li class="b1"><a class="icon config" href="/backend/userpass">Cambiar contraseña</a></li>
+				</ul>
+			</div>
+			<div class="box">
+				<div class="h_title">&#8250; RRHH</div>
+				<ul id="rrhh">
+					<li class="b1"><a class="icon view_page" href="/backend/cv">CV</a></li>
+					<li class="b1"><a class="icon report" href="/backend/rrhh">RRHH</a></li>
+
+				</ul>
+			</div>
+			<div class="box">
+				<div class="h_title">&#8250; Newsletter</div>
+				<ul id="newsletter">
+					<li class="b1"><a class="icon report" href="/backend/newsletter">Listado de inscriptos</a></li>
+				</ul>
+			</div>
+			<div class="box">
+				<div class="h_title">&#8250; Adjudicaciones</div>
+				<ul id="adjudicaciones">
+					<li class="b1"><a class="icon report" href="/backend/importaradjudicaciones">Resultado adjudicaciones</a></li>
+					<li class="b1"><a class="icon report" href="/backend/impadjudfuturas">Adjudicaciones A realizarse</a></li>
+				</ul>
+			</div>
+		</div>
+        <div id="main">
+            <?php echo $this->layout()->content ?>
+    	</div>
+	</div>
+
+	<script>
+		$(document).on({
+    		// When ajaxStart is fired, add 'loading' to body class
+			ajaxStart: function() {
+			   	$("body").addClass("loading"); 
+    		},
+    		// When ajaxStop is fired, rmeove 'loading' from body class
+    		ajaxStop: function() { 
+        		$("body").removeClass("loading"); 
+    		}    
+		});
+	</script>
+
+</body>
+</html>
