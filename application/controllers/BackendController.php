@@ -4,7 +4,7 @@ class BackendController extends Zend_Controller_Action
 {
     public function init(){
 		
-		//$this->_helper->getHelper('Layout')->setLayout( 'intranet' );
+		$this->_helper->getHelper('Layout')->setLayout( 'back' );
 		$this->auth = new Zend_Session_Namespace('admin');
 		$this->view->assign("id",$this->auth->id);
 		$this->view->assign("user",$this->auth->user);
